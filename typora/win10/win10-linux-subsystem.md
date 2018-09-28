@@ -14,9 +14,20 @@
 * 参考：
 
   * https://walterlv.com/post/case-sensitive-in-windows-file-system.html
-
-## win10 cmder zsh vim方向键不能用的问题
-* 步骤:
+## zsh 安装与配置
+* zsh安装
+  * 1. sudo apt-get install zsh
+  * 2. 运行zsh然后选2
+  * 3. 安装oh-my-zsh
+  ```bash
+  sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+  ```
+* 配置长文件名使用前缀
+  * 定义前缀~home为/mnt/d/linuxdir
+  ```bash
+  hash -d home=/mnt/d/linuxdir
+  ```
+*  win10 cmder zsh vim方向键不能用的问题
   * 安装ubuntu 和 cmder
   * 修改cmder配置
     * settings-> startup-> Command line填 
@@ -34,9 +45,23 @@
   [automount]
   options = "metadata"
   ```
-## zsh 配置长文件名使用前缀
-* 定义前缀~home为/mnt/d/linuxdir
+  * 前面的方式不生效
   ```bash
-  hash -d home=/mnt/d/linuxdir
+  sudo umount /mnt/d
+  sudo mount -t drvfs D: /mnt/d -o metadata,uid=1000,gid=1000,umask=22,fmask=111
   ```
+## typro改宽一点，避免换行
+* C:\Users\27510\AppData\Roaming\Typora\themes\github.css
+```css
+#write{
+    max-width: 1280px;
+  	margin: 0 auto;
+  	padding: 20px 30px 40px 30px;
+	padding-top: 20px;
+    padding-bottom: 100px;
+}
+```
+
+* C:\Program Files\Typora\resources\app\style\base-control.css （使用admin权限）
+  * 800px改成1280px
 
